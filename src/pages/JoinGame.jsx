@@ -11,20 +11,20 @@ import { FiSend } from "react-icons/fi";
 import gameService from "../services/game.service";
 import Avatar from "react-avatar";
 
-const gameDetails = [
-  {
-    icon: <BiMap color="#ff8252" size={24} className="mr-2" />,
-    text: "Shady Smile Sport Centre, London",
-  },
-  {
-    icon: <BiCalendar color="#ff8252" size={24} className="mr-2" />,
-    text: "2nd of December, 04:15 PM",
-  },
-  {
-    icon: <BiDollar color="#ff8252" size={24} className="mr-2" />,
-    text: "$150.00",
-  },
-];
+// const gameDetails = [
+//   {
+//     icon: <BiMap color="#ff8252" size={24} className="mr-2" />,
+//     text: "Shady Smile Sport Centre, London",
+//   },
+//   {
+//     icon: <BiCalendar color="#ff8252" size={24} className="mr-2" />,
+//     text: "2nd of December, 04:15 PM",
+//   },
+//   {
+//     icon: <BiDollar color="#ff8252" size={24} className="mr-2" />,
+//     text: "$150.00",
+//   },
+// ];
 
 const roleDetails = [
   {
@@ -51,12 +51,12 @@ const roleDetails = [
 // ];
 // let playersTeam1 = [];
 
-const joinRoleArr = [
-  { name: "Keeper", className: "border-bottom" },
-  { name: "Defender", className: "border-bottom" },
-  { name: "Midfielder", className: "border-bottom" },
-  { name: "Striker" },
-];
+// const joinRoleArr = [
+//   { name: "Keeper", className: "border-bottom" },
+//   { name: "Defender", className: "border-bottom" },
+//   { name: "Midfielder", className: "border-bottom" },
+//   { name: "Striker" },
+// ];
 
 const getFromLocal = () => {
   let localUser = localStorage.getItem("user");
@@ -72,20 +72,15 @@ const JoinGame = (props) => {
   // const [toggleOne1, setToggleOne] = useState(false);
   // const [toggleOne2, setToggleTwo] = useState(false);
   const [toggleChat, setToggleChat] = useState(false);
-  const [role, setRole] = useState("Striker");
+  // const [role, setRole] = useState("Striker");
   const [playersTeam2, setPlayers2] = useState([]);
   const [playersTeam1, setPlayers1] = useState([]);
   const [game, setGame] = useState(
     props.location.data ? props.location.data : {}
   );
-  const [user, setCurrentUser] = useState(
+  const user = useState(
     props.response.login.user ? props.response.login.user : getFromLocal()
   );
-  useEffect(() => {
-    return gameService
-      .getGameById(gameId)
-      .then((snapshot) => getGames(snapshot.data()));
-  }, []);
 
   const getGames = (items) => {
     console.log(user);
@@ -103,25 +98,31 @@ const JoinGame = (props) => {
     // }
     if (items.team1 && items.team1.length > 0) {
       items.team1.map((item) => {
-        playersOne.unshift({
+        return (
+          playersOne.unshift({
           titleName: item.user.displayName,
           className: "text-black-50",
           titleRole: item.user.role,
           icon: "$",
           userId:item.user.uid,
           photo:item.user.photoURL
-        });
+        })
+        )
+        
       });
     }
     if (items.team2 && items.team2.length > 0) {
       items.team2.map((item) => {
-        playersTwo.unshift({
+        return (
+          playersTwo.unshift({
           titleName: item.user.displayName,
           className: "text-black-50",
           titleRole: item.user.role,
           icon: "$",
           photo:item.user.photoURL
-        });
+        })
+        )
+        ;
       });
     }
     setPlayers1(playersOne);
@@ -158,6 +159,12 @@ const JoinGame = (props) => {
         });
     }
   };
+
+  useEffect(() => {
+    return gameService
+      .getGameById(gameId)
+      .then((snapshot) => getGames(snapshot.data()));
+  }, [gameId, getGames]);
 
   const playerIsInTeamA= () => {
     return playersTeam1.filter(player=>player.userId===user.uid).length>0

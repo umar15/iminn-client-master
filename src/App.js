@@ -25,13 +25,13 @@ function isLoggedIn() {
 	return false;
 }
 
-function requireAuth(nextState, replace) {
-	if (!isLoggedIn()) {
-		replace({
-			pathname: "/login",
-		});
-	}
-}
+// function requireAuth(nextState, replace) {
+// 	if (!isLoggedIn()) {
+// 		replace({
+// 			pathname: "/login",
+// 		});
+// 	}
+// }
 function App({ location }) {
 	return (
 		<>

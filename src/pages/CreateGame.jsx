@@ -32,27 +32,27 @@ export const CreateGame = () => {
   const [price, setPrice] = useState(1);
   const [type, setType] = useState("Organizer");
   const [pitch, setPitch] = useState("7");
-  const [teamName1, setTeam1] = useState("Team A");
-  const [teamName2, setTeam2] = useState("Team B");
+  const teamName1 = useState("Team A");
+  const teamName2 = useState("Team B");
   const [location, setLocation] = useState();
   const [time, setTime] = useState();
   const [audence, setAudence] = useState("public");
   const [currentActive, setActive] = useState("info");
   const [errors, setErrors] = useState([]);
-  const [user, setUser] = useState(getFromLocal());
+  const user = useState(getFromLocal());
 
   const validateInfo = () => {
     var errors = [];
-    if (type == "" || !type) {
+    if (type === "" || !type) {
       errors.push("type");
     }
-    if (pitch == "" || !pitch) {
+    if (pitch === "" || !pitch) {
       errors.push("pitch");
     }
-    if (teamName1 == "" || !teamName1) {
+    if (teamName1 === "" || !teamName1) {
       errors.push("teamName1");
     }
-    if (teamName2 == "" || !teamName2) {
+    if (teamName2 === "" || !teamName2) {
       errors.push("teamName2");
     }
     setErrors(errors);
@@ -62,16 +62,16 @@ export const CreateGame = () => {
 
   const validateDetail = () => {
     var errors = [];
-    if (location == "" || !location) {
+    if (location === "" || !location) {
       errors.push("location");
     }
-    if (gameDate == "" || !gameDate) {
+    if (gameDate === "" || !gameDate) {
       errors.push("gameDate");
     }
-    if (time == "" || !time) {
+    if (time === "" || !time) {
       errors.push("time");
     }
-    if (price == "" || !price) {
+    if (price === "" || !price) {
       errors.push("price");
     }
     setErrors(errors);
@@ -109,7 +109,7 @@ export const CreateGame = () => {
       teamName2,
       type,
       price,
-      team1: type == "Player" ? [{user}] : undefined,
+      team1: type === "Player" ? [{user}] : undefined,
     };
 
     gameService.create(data).then((data) => {

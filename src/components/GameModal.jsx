@@ -7,7 +7,7 @@ import {
  
   Modal,
 } from "react-bootstrap";
-import { AiFillHeart, AiOutlinePlus } from "react-icons/ai";
+import {AiOutlinePlus } from "react-icons/ai";
 
 import { Link } from "react-router-dom";
 

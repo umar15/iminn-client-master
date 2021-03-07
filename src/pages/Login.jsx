@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Form, Button, Carousel } from "react-bootstrap";
 import { FcGoogle } from "react-icons/fc";
 import { ImFacebook } from "react-icons/im";

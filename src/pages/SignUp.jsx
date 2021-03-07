@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Form, Button, Carousel } from "react-bootstrap";
 import { FcGoogle } from "react-icons/fc";
 import { ImFacebook } from "react-icons/im";
@@ -16,6 +16,7 @@ const SignUp = (props) => {
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
   const [index, setIndex] = useState(0);
+  console.log(confirmPassword)
 
   const history = useHistory();
   const handleSubmit = async (e) => {

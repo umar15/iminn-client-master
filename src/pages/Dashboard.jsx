@@ -1,38 +1,38 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { Col, Row, Button, OverlayTrigger, Popover } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 // icons
-import { AiFillHeart, AiOutlinePlus } from "react-icons/ai";
-import { BiBookOpen, BiTimeFive } from "react-icons/bi";
+import { AiOutlinePlus } from "react-icons/ai";
+// import { BiBookOpen, BiTimeFive } from "react-icons/bi";
 import { Icon1 } from "../assets/images/icon1";
 import { IoIosNotificationsOutline } from "react-icons/io";
-import { FiUsers } from "react-icons/fi";
+// import { FiUsers } from "react-icons/fi";
 import Avatar from "react-avatar";
 // images
 import imageOne from "../assets/images/image-1.svg";
-import imageTwo from "../assets/images/image-2.svg";
-import face1 from "../assets/images/face1.svg";
-import face2 from "../assets/images/face2.svg";
-import face3 from "../assets/images/face3.svg";
-import face4 from "../assets/images/face4.svg";
-import face5 from "../assets/images/face5.svg";
+// import imageTwo from "../assets/images/image-2.svg";
+// import face1 from "../assets/images/face1.svg";
+// import face2 from "../assets/images/face2.svg";
+// import face3 from "../assets/images/face3.svg";
+// import face4 from "../assets/images/face4.svg";
+// import face5 from "../assets/images/face5.svg";
 import gameService from "../services/game.service";
 
-const popover1 = (
-  <Popover id="key-1" className="rounded-xl  shadow-sm border-0">
-    <div className="py-3 px-3 px-md-3">
-      <div className="font-weight-bold">
-        <span className="im-text-primary mr-1">1.</span>
-        <span>Let’s Setting Up Your Profile</span>
-      </div>
-      <p className="text-black-50 mt-4 small">
-        Let’s setting up your profile by uploading a profile picture, and then
-        you are ready to go!
-      </p>
-    </div>
-  </Popover>
-);
+// const popover1 = (
+//   <Popover id="key-1" className="rounded-xl  shadow-sm border-0">
+//     <div className="py-3 px-3 px-md-3">
+//       <div className="font-weight-bold">
+//         <span className="im-text-primary mr-1">1.</span>
+//         <span>Let’s Setting Up Your Profile</span>
+//       </div>
+//       <p className="text-black-50 mt-4 small">
+//         Let’s setting up your profile by uploading a profile picture, and then
+//         you are ready to go!
+//       </p>
+//     </div>
+//   </Popover>
+// );
 
 const popover3 = (
   <Popover id="key-3" className="rounded-xl  shadow-sm border-0">
@@ -184,7 +184,7 @@ const getFromLocal = () => {
 export const Dashboard = (props) => {
   const [games, setGames] = useState([]);
   const [state, setState] = useState(true);
-  const [user, setUser] = useState(getFromLocal());
+  const user = useState(getFromLocal());
 
   useLayoutEffect(() => {
     return gameService
