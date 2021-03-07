@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { Button, Col, Row } from "react-bootstrap";
 import { connect } from "react-redux";
@@ -82,7 +82,7 @@ const JoinGame = (props) => {
     props.response.login.user ? props.response.login.user : getFromLocal()
   );
 
-  const getGames = (items) => {
+  const getGames = useCallback((items) => {
     console.log(user);
     let playersOne = [];
     let playersTwo = [];
@@ -128,7 +128,8 @@ const JoinGame = (props) => {
     setPlayers1(playersOne);
     setPlayers2(playersTwo);
     setGame(items);
-  };
+	}, [user])
+	
   const joinOrLeaveGame = (team) => {
     if (!user) {
       return history.push("/login");
