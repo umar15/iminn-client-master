@@ -1,0 +1,22 @@
+/* footer-bar */
+
+.footer-bar {
+  background-color: var(--color-white);
+  box-shadow: 0 0 0.3rem var(--color-black-lighter);
+  border-top-right-radius: 1.5rem !important;
+  border-top-left-radius: 1.5rem !important;
+}
+
+.btn-footer-bar {
+  color: var(--color-gray-light);
+}
+
+.btn-footer-bar:focus {
+  box-shadow: unset;
+  border: unset;
+}
+
+.btn-footer-bar.active,
+.btn-footer-bar:hover {
+  color: var(--color-primary) !important;
+}

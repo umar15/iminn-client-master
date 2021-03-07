@@ -1,0 +1,20 @@
+.success-box{
+    margin:2rem;
+    padding:3rem;
+    max-width: 100rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    box-shadow: 1px 2px 3px #f7f7f7;
+}
+
+.success-icon{
+    border-radius: 50%;
+    border:1px solid #ff8252;
+    background:#f2e6e1;
+    padding:0.5rem 1.2rem;
+    font-size: 2.5rem;
+    margin:0.5rem 2rem;
+}

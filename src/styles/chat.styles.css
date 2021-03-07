@@ -1,0 +1,13 @@
+.chat-radius-left {
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+
+.chat-radius-right {
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 0.3rem;
+}
